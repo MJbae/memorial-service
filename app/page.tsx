@@ -100,7 +100,7 @@ export default function MemorialService() {
         <SectionCard
           step={2}
           title="함께 찬양"
-          subtitle="찬송가 28장 - 복의 근원 강림하사"
+          subtitle="찬송가 - 복의 근원 강림하사"
           icon={Music}
           fontSize={fontSize}
           fs={fs}
