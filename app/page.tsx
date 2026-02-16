@@ -84,15 +84,14 @@ export default function MemorialService() {
         <SectionCard
           step={1}
           title="대표 기도"
-          subtitle="기도 인도: 배성근"
+          subtitle="기도: 배성근"
           icon={User}
           fontSize={fontSize}
           fs={fs}
         >
           <div className="space-y-6">
-            <RoleBadge role="leader" fontSize={fontSize} customText="배성근" />
             <p className={`${fs.body[fontSize as keyof typeof fs.body]} leading-relaxed`}>
-              (대표 기도자가 기도로 예배를 엽니다.)
+              기도로 예배를 엽니다.
             </p>
           </div>
         </SectionCard>
@@ -150,7 +149,7 @@ export default function MemorialService() {
               <RoleBadge role="leader" fontSize={fontSize} />
               <p>범사에 기한이 있고 천하 만사가 다 때가 있나니</p>
             </div>
-            <div className="space-y-2 text-right">
+            <div className="space-y-2">
               <RoleBadge role="all" fontSize={fontSize} />
               <p>날 때가 있고 죽을 때가 있으며 심을 때가 있고 심은 것을 뽑을 때가 있으며</p>
             </div>
@@ -158,7 +157,7 @@ export default function MemorialService() {
               <RoleBadge role="leader" fontSize={fontSize} />
               <p>죽일 때가 있고 치료할 때가 있으며 헐 때가 있고 세울 때가 있으며</p>
             </div>
-            <div className="space-y-2 text-right">
+            <div className="space-y-2">
               <RoleBadge role="all" fontSize={fontSize} />
               <p>울 때가 있고 웃을 때가 있으며 슬퍼할 때가 있고 춤출 때가 있으며</p>
             </div>
@@ -166,7 +165,7 @@ export default function MemorialService() {
               <RoleBadge role="leader" fontSize={fontSize} />
               <p>돌을 던져 버릴 때가 있고 돌을 거둘 때가 있으며 안을 때가 있고 안는 일을 멀리 할 때가 있으며</p>
             </div>
-            <div className="space-y-2 text-right">
+            <div className="space-y-2">
               <RoleBadge role="all" fontSize={fontSize} />
               <p>찾을 때가 있고 잃을 때가 있으며 지킬 때가 있고 버릴 때가 있으며</p>
             </div>
@@ -174,7 +173,7 @@ export default function MemorialService() {
               <RoleBadge role="leader" fontSize={fontSize} />
               <p>찢을 때가 있고 꿰맬 때가 있으며 잠잠할 때가 있고 말할 때가 있으며</p>
             </div>
-            <div className="space-y-2 text-right">
+            <div className="space-y-2">
               <RoleBadge role="all" fontSize={fontSize} />
               <p>사랑할 때가 있고 미워할 때가 있으며 전쟁할 때가 있고 평화할 때가 있느니라</p>
             </div>
@@ -182,7 +181,7 @@ export default function MemorialService() {
               <RoleBadge role="leader" fontSize={fontSize} />
               <p>일하는 자가 그의 수고로 말미암아 무슨 이익이 있으랴</p>
             </div>
-            <div className="space-y-2 text-right">
+            <div className="space-y-2">
               <RoleBadge role="all" fontSize={fontSize} />
               <p>하나님이 인생들에게 노고를 주사 애쓰게 하신 것을 내가 보았노라</p>
             </div>
@@ -190,7 +189,7 @@ export default function MemorialService() {
               <RoleBadge role="leader" fontSize={fontSize} />
               <p>하나님이 모든 것을 지으시되 때를 따라 아름답게 하셨고 또 사람들에게는 영원을 사모하는 마음을 주셨느니라 그러나 하나님이 하시는 일의 시종을 사람으로 측량할 수 없게 하셨도다</p>
             </div>
-            <div className="space-y-2 text-right">
+            <div className="space-y-2">
               <RoleBadge role="all" fontSize={fontSize} />
               <p>사람들이 사는 동안에 기뻐하며 선을 행하는 것보다 더 나은 것이 없는 줄을 내가 알았고</p>
             </div>
@@ -198,18 +197,10 @@ export default function MemorialService() {
               <RoleBadge role="leader" fontSize={fontSize} />
               <p>사람마다 먹고 마시는 것과 수고함으로 낙을 누리는 그것이 하나님의 선물인 줄도 또한 알았도다</p>
             </div>
-            <div className="space-y-2 text-right">
+            <div className="space-y-2">
               <RoleBadge role="all" fontSize={fontSize} />
               <p>하나님께서 행하시는 모든 것은 영원히 있을 것이라 그 위에 더 할 수도 없고 그것에서 덜 할 수도 없나니 하나님이 이같이 행하심은 사람들이 그의 앞에서 경외하게 하려 하심인 줄을 내가 알았도다</p>
             </div>
-          </div>
-
-          <div className={`mt-8 space-y-4 ${fs.body[fontSize as keyof typeof fs.body]}`}>
-            <p className="font-medium text-primary">말씀 나눔</p>
-            <p className="leading-relaxed">
-              어머님이 우리에게 보여주신 사랑을 기억하며, 우리 형제 자매들도 서로 깊이 사랑하고 화목하게 지내는 것이 어머님이 가장 기뻐하시는 일일 것입니다.<br />
-              잠시 각자의 가정과 삶을 돌아보며 감사하는 시간을 갖겠습니다.
-            </p>
           </div>
         </SectionCard>
 
