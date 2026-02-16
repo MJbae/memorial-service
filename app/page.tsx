@@ -23,11 +23,11 @@ export default function MemorialService() {
 
   // Dynamic font size classes mapping
   const fs = {
-    h1: { 1: "text-2xl", 2: "text-3xl", 3: "text-4xl", 4: "text-5xl", 5: "text-6xl" },
-    h2: { 1: "text-xl", 2: "text-2xl", 3: "text-3xl", 4: "text-4xl", 5: "text-5xl" },
-    h3: { 1: "text-lg", 2: "text-xl", 3: "text-2xl", 4: "text-3xl", 5: "text-4xl" },
-    body: { 1: "text-base", 2: "text-lg", 3: "text-xl", 4: "text-2xl", 5: "text-3xl" },
-    small: { 1: "text-sm", 2: "text-base", 3: "text-lg", 4: "text-xl", 5: "text-2xl" },
+    h1: { 1: "text-3xl", 2: "text-4xl", 3: "text-5xl", 4: "text-6xl", 5: "text-7xl" },
+    h2: { 1: "text-2xl", 2: "text-3xl", 3: "text-4xl", 4: "text-5xl", 5: "text-6xl" },
+    h3: { 1: "text-xl", 2: "text-2xl", 3: "text-3xl", 4: "text-4xl", 5: "text-5xl" },
+    body: { 1: "text-lg", 2: "text-xl", 3: "text-2xl", 4: "text-3xl", 5: "text-4xl" },
+    small: { 1: "text-base", 2: "text-lg", 3: "text-xl", 4: "text-2xl", 5: "text-3xl" },
   }
 
   return (
@@ -67,7 +67,7 @@ export default function MemorialService() {
       <main className="max-w-3xl mx-auto p-4 space-y-8 mt-4">
         {/* Intro Section */}
         <div className="text-center py-10 space-y-6">
-          <div className="inline-block px-3 py-1 rounded-full bg-secondary text-primary text-sm font-medium mb-4">
+          <div className={`inline-block px-3 py-1 rounded-full bg-secondary text-primary font-medium mb-4 ${fs.small[fontSize as keyof typeof fs.small]}`}>
             2026년 2월 17일
           </div>
           <h1 className={`${fs.h1[fontSize as keyof typeof fs.h1]} font-bold text-foreground leading-tight`}>
@@ -105,7 +105,7 @@ export default function MemorialService() {
           fontSize={fontSize}
           fs={fs}
         >
-          <RoleBadge role="all" fontSize={fontSize} />
+          <RoleBadge role="all" fontSize={fontSize} fs={fs} />
           <div className={`mt-6 space-y-8 lyrics-text ${fs.body[fontSize as keyof typeof fs.body]}`}>
             <div>
               <span className="text-primary font-bold mr-2">1.</span>
@@ -146,59 +146,59 @@ export default function MemorialService() {
 
           <div className={`space-y-6 ${fs.body[fontSize as keyof typeof fs.body]} leading-loose`}>
             <div className="space-y-2">
-              <RoleBadge role="leader" fontSize={fontSize} />
+              <RoleBadge role="leader" fontSize={fontSize} fs={fs} />
               <p>범사에 기한이 있고 천하 만사가 다 때가 있나니</p>
             </div>
             <div className="space-y-2">
-              <RoleBadge role="all" fontSize={fontSize} />
+              <RoleBadge role="all" fontSize={fontSize} fs={fs} />
               <p>날 때가 있고 죽을 때가 있으며 심을 때가 있고 심은 것을 뽑을 때가 있으며</p>
             </div>
             <div className="space-y-2">
-              <RoleBadge role="leader" fontSize={fontSize} />
+              <RoleBadge role="leader" fontSize={fontSize} fs={fs} />
               <p>죽일 때가 있고 치료할 때가 있으며 헐 때가 있고 세울 때가 있으며</p>
             </div>
             <div className="space-y-2">
-              <RoleBadge role="all" fontSize={fontSize} />
+              <RoleBadge role="all" fontSize={fontSize} fs={fs} />
               <p>울 때가 있고 웃을 때가 있으며 슬퍼할 때가 있고 춤출 때가 있으며</p>
             </div>
             <div className="space-y-2">
-              <RoleBadge role="leader" fontSize={fontSize} />
+              <RoleBadge role="leader" fontSize={fontSize} fs={fs} />
               <p>돌을 던져 버릴 때가 있고 돌을 거둘 때가 있으며 안을 때가 있고 안는 일을 멀리 할 때가 있으며</p>
             </div>
             <div className="space-y-2">
-              <RoleBadge role="all" fontSize={fontSize} />
+              <RoleBadge role="all" fontSize={fontSize} fs={fs} />
               <p>찾을 때가 있고 잃을 때가 있으며 지킬 때가 있고 버릴 때가 있으며</p>
             </div>
             <div className="space-y-2">
-              <RoleBadge role="leader" fontSize={fontSize} />
+              <RoleBadge role="leader" fontSize={fontSize} fs={fs} />
               <p>찢을 때가 있고 꿰맬 때가 있으며 잠잠할 때가 있고 말할 때가 있으며</p>
             </div>
             <div className="space-y-2">
-              <RoleBadge role="all" fontSize={fontSize} />
+              <RoleBadge role="all" fontSize={fontSize} fs={fs} />
               <p>사랑할 때가 있고 미워할 때가 있으며 전쟁할 때가 있고 평화할 때가 있느니라</p>
             </div>
             <div className="space-y-2">
-              <RoleBadge role="leader" fontSize={fontSize} />
+              <RoleBadge role="leader" fontSize={fontSize} fs={fs} />
               <p>일하는 자가 그의 수고로 말미암아 무슨 이익이 있으랴</p>
             </div>
             <div className="space-y-2">
-              <RoleBadge role="all" fontSize={fontSize} />
+              <RoleBadge role="all" fontSize={fontSize} fs={fs} />
               <p>하나님이 인생들에게 노고를 주사 애쓰게 하신 것을 내가 보았노라</p>
             </div>
             <div className="space-y-2">
-              <RoleBadge role="leader" fontSize={fontSize} />
+              <RoleBadge role="leader" fontSize={fontSize} fs={fs} />
               <p>하나님이 모든 것을 지으시되 때를 따라 아름답게 하셨고 또 사람들에게는 영원을 사모하는 마음을 주셨느니라 그러나 하나님이 하시는 일의 시종을 사람으로 측량할 수 없게 하셨도다</p>
             </div>
             <div className="space-y-2">
-              <RoleBadge role="all" fontSize={fontSize} />
+              <RoleBadge role="all" fontSize={fontSize} fs={fs} />
               <p>사람들이 사는 동안에 기뻐하며 선을 행하는 것보다 더 나은 것이 없는 줄을 내가 알았고</p>
             </div>
             <div className="space-y-2">
-              <RoleBadge role="leader" fontSize={fontSize} />
+              <RoleBadge role="leader" fontSize={fontSize} fs={fs} />
               <p>사람마다 먹고 마시는 것과 수고함으로 낙을 누리는 그것이 하나님의 선물인 줄도 또한 알았도다</p>
             </div>
             <div className="space-y-2">
-              <RoleBadge role="all" fontSize={fontSize} />
+              <RoleBadge role="all" fontSize={fontSize} fs={fs} />
               <p>하나님께서 행하시는 모든 것은 영원히 있을 것이라 그 위에 더 할 수도 없고 그것에서 덜 할 수도 없나니 하나님이 이같이 행하심은 사람들이 그의 앞에서 경외하게 하려 하심인 줄을 내가 알았도다</p>
             </div>
           </div>
@@ -213,7 +213,7 @@ export default function MemorialService() {
           fontSize={fontSize}
           fs={fs}
         >
-          <RoleBadge role="all" fontSize={fontSize} />
+          <RoleBadge role="all" fontSize={fontSize} fs={fs} />
           <div className={`mt-6 space-y-2 text-center leading-loose ${fs.body[fontSize as keyof typeof fs.body]}`}>
             <p>하늘에 계신 우리 아버지,</p>
             <p>아버지의 이름을 거룩하게 하시며</p>
@@ -238,7 +238,7 @@ export default function MemorialService() {
       </main>
 
       <footer className="py-12 text-center text-muted-foreground">
-        <p className="text-sm">사랑으로 하나되는 가족</p>
+        <p className={`${fs.small[fontSize as keyof typeof fs.small]}`}>사랑으로 하나되는 가족</p>
       </footer>
     </div>
   )
@@ -264,7 +264,7 @@ function SectionCard({
   return (
     <Card className="overflow-hidden border-none shadow-md">
       <div className="bg-secondary/50 p-4 flex items-center gap-3 border-b border-secondary">
-        <div className="flex items-center justify-center w-8 h-8 rounded-full bg-primary text-primary-foreground font-bold text-sm">
+        <div className={`flex items-center justify-center w-8 h-8 rounded-full bg-primary text-primary-foreground font-bold ${fs.small[fontSize as keyof typeof fs.small]}`}>
           {step}
         </div>
         <div className="flex-1">
@@ -280,15 +280,16 @@ function SectionCard({
   )
 }
 
-function RoleBadge({ role, fontSize, customText }: { role: "leader" | "all", fontSize: number, customText?: string }) {
+function RoleBadge({ role, fontSize, fs, customText }: { role: "leader" | "all", fontSize: number, fs: any, customText?: string }) {
   const isLeader = role === "leader"
   const text = customText || (isLeader ? "인도자" : "다같이")
   const Icon = isLeader ? User : Users
 
   return (
-    <div className={`inline-flex items-center gap-1.5 px-2.5 py-1 rounded-md text-sm font-medium ${isLeader
-      ? "bg-primary/10 text-primary border border-primary/20"
-      : "bg-muted text-muted-foreground border border-transparent"
+    <div className={`inline-flex items-center gap-1.5 px-2.5 py-1 rounded-md font-medium ${fs.small[fontSize as keyof typeof fs.small]
+      } ${isLeader
+        ? "bg-primary/10 text-primary border border-primary/20"
+        : "bg-muted text-muted-foreground border border-transparent"
       }`}>
       <Icon className="w-3.5 h-3.5" />
       <span>{text}</span>
