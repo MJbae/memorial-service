@@ -104,12 +104,12 @@ export default function MemorialService() {
         <SectionCard
           step={1}
           title="대표 기도"
-          subtitle="기도: 배성근"
           icon={User}
           fontSize={fontSize}
           fs={fs}
         >
           <div className="space-y-6">
+            <RoleBadge role="leader" customText="배성근" fontSize={fontSize} fs={fs} />
             <p className={`${fs.body[fontSize as keyof typeof fs.body]} leading-relaxed`}>
               기도로 예배를 엽니다.
             </p>
@@ -155,12 +155,12 @@ export default function MemorialService() {
         <SectionCard
           step={3}
           title="말씀"
-          subtitle="말씀: 강영아"
           icon={BookOpen}
           fontSize={fontSize}
           fs={fs}
         >
-          <p className={`${fs.body[fontSize as keyof typeof fs.body]} leading-relaxed`}>
+          <RoleBadge role="leader" customText="강영아" fontSize={fontSize} fs={fs} />
+          <p className={`mt-6 ${fs.body[fontSize as keyof typeof fs.body]} leading-relaxed`}>
             함께 말씀을 듣습니다.
           </p>
         </SectionCard>
@@ -216,7 +216,7 @@ function SectionCard({
 }: {
   step: number
   title: string
-  subtitle: string
+  subtitle?: string
   icon: LucideIcon
   children: React.ReactNode
   fontSize: number
@@ -230,7 +230,7 @@ function SectionCard({
         </div>
         <div className="flex-1 min-w-0">
           <h2 className={`${fs.h3[fontSize as keyof typeof fs.h3]} font-bold text-primary`}>{title}</h2>
-          <p className={`${fs.small[fontSize as keyof typeof fs.small]} text-muted-foreground`}>{subtitle}</p>
+          {subtitle && <p className={`${fs.small[fontSize as keyof typeof fs.small]} text-muted-foreground`}>{subtitle}</p>}
         </div>
         <Icon className="w-5 h-5 shrink-0 mt-2 text-primary" aria-hidden="true" />
       </div>
