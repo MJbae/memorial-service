@@ -1,0 +1,18 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="630" viewBox="0 0 1200 630">
+  <rect width="1200" height="630" fill="#f8f3e9"/>
+  <rect x="28" y="28" width="1144" height="574" rx="18" fill="none" stroke="#e2d4bd"/>
+  <path d="M795 472V277a140 140 0 0 1 280 0v195Z" fill="#eee7d8"/>
+  <path d="M935 235V391M887 281H983" stroke="#9a8059" stroke-width="8" stroke-linecap="round"/>
+  <g stroke="#889077" stroke-width="2.5" fill="#c6cbb8" stroke-linejoin="round">
+    <path d="M817 490Q866 413 824 330M1055 490Q1006 413 1048 330" fill="none"/>
+    <path d="M834 358Q805 354 800 328Q827 331 834 358ZM843 392Q870 371 864 348Q840 364 843 392ZM842 423Q810 416 803 389Q834 394 842 423ZM834 453Q870 438 874 413Q844 422 834 453ZM1038 358Q1067 354 1072 328Q1045 331 1038 358ZM1029 392Q1002 371 1008 348Q1032 364 1029 392ZM1030 423Q1062 416 1069 389Q1038 394 1030 423ZM1038 453Q1002 438 998 413Q1028 422 1038 453Z"/>
+  </g>
+  <g font-family="AppleMyungjo, serif">
+    <text x="90" y="126" fill="#72532d" font-size="27" letter-spacing="5">사랑과 감사의 기억</text>
+    <text x="86" y="225" fill="#352f28" font-size="53">고(故) 김우분</text>
+    <text x="86" y="304" fill="#352f28" font-size="53">어머님·할머님</text>
+    <text x="86" y="402" fill="#72532d" font-size="65">추도 예배</text>
+    <path d="M90 447H650" stroke="#e2d4bd"/>
+    <text x="90" y="502" fill="#706252" font-size="27">함께 모여 사랑과 은혜를 기억합니다.</text>
+  </g>
+</svg>
