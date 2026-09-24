@@ -151,10 +151,11 @@ export default function MemorialService() {
           </div>
         </SectionCard>
 
-        {/* 3. Message — the scripture passage has not been selected. */}
+        {/* 3. Message */}
         <SectionCard
           step={3}
           title="말씀"
+          subtitle="시편 23편 1–6절 (새번역)"
           icon={BookOpen}
           fontSize={fontSize}
           fs={fs}
