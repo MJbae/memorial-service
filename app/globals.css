@@ -5,29 +5,29 @@
 
 :root {
   /* Memorial Service Theme - Warm & Solemn */
-  --background: #F9F7F5;
+  --background: #F8F3E9;
   /* Soft warm beige background */
-  --foreground: #4A453F;
+  --foreground: #352F28;
   /* Dark warm gray for text */
   --card: #FFFFFF;
-  --card-foreground: #4A453F;
+  --card-foreground: #352F28;
   --popover: #FFFFFF;
-  --popover-foreground: #4A453F;
-  --primary: #8C8174;
+  --popover-foreground: #352F28;
+  --primary: #72532D;
   /* Muted earth tone */
   --primary-foreground: #FFFFFF;
-  --secondary: #F0EBE6;
+  --secondary: #EFE5D3;
   /* Light warm gray */
   --secondary-foreground: #5E564F;
-  --muted: #F0EBE6;
-  --muted-foreground: #9C948A;
-  --accent: #E6E1DC;
-  --accent-foreground: #4A453F;
+  --muted: #EFE5D3;
+  --muted-foreground: #706252;
+  --accent: #E2D4BD;
+  --accent-foreground: #352F28;
   --destructive: oklch(0.577 0.245 27.325);
   --destructive-foreground: oklch(0.577 0.245 27.325);
-  --border: #E6E1DC;
-  --input: #E6E1DC;
-  --ring: #8C8174;
+  --border: #E2D4BD;
+  --input: #E2D4BD;
+  --ring: #72532D;
   --chart-1: oklch(0.646 0.222 41.116);
   --chart-2: oklch(0.6 0.118 184.704);
   --chart-3: oklch(0.398 0.07 227.392);
@@ -47,19 +47,19 @@
 
 .dark {
   --background: #1C1B1A;
-  --foreground: #E6E1DC;
+  --foreground: #E2D4BD;
   --card: #262422;
-  --card-foreground: #E6E1DC;
+  --card-foreground: #E2D4BD;
   --popover: #262422;
-  --popover-foreground: #E6E1DC;
+  --popover-foreground: #E2D4BD;
   --primary: #A69B8F;
   --primary-foreground: #1C1B1A;
   --secondary: #33302E;
-  --secondary-foreground: #E6E1DC;
+  --secondary-foreground: #E2D4BD;
   --muted: #33302E;
-  --muted-foreground: #8C8174;
+  --muted-foreground: #72532D;
   --accent: #33302E;
-  --accent-foreground: #E6E1DC;
+  --accent-foreground: #E2D4BD;
   --destructive: oklch(0.396 0.141 25.723);
   --destructive-foreground: oklch(0.637 0.237 25.331);
   --border: #33302E;
@@ -181,3 +181,23 @@
     line-height: 2.2;
   }
 }
+/* Warm paper, a harvest moon, and rice stalks for Chuseok. */
+.memorial-page {
+  background: radial-gradient(ellipse at 50% 12%, #f2e5c950, transparent 55%), var(--background);
+  overflow-wrap: anywhere;
+  word-break: keep-all;
+}
+.memorial-intro { padding: 1.5rem 0 2rem; }
+.harvest-scene { position: relative; width: 260px; height: 150px; margin: 0 auto 1.5rem; }
+.harvest-moon {
+  position: absolute; width: 112px; height: 112px; left: 74px; top: 8px;
+  border-radius: 50%; background: radial-gradient(circle at 35% 30%, #f7e8b9, #dec28a);
+  box-shadow: 0 0 50px 18px #e8d3a32b, inset 0 0 24px #fff7da70;
+}
+.harvest-grass { position: absolute; inset: 0; width: 100%; height: 100%; color: #9a7844; }
+.season-label { color: var(--primary); letter-spacing: .1em; }
+.intro-divider { display: flex; justify-content: center; margin: 1.75rem auto; }
+.intro-divider span { width: 5px; height: 5px; background: #a3814c; transform: rotate(45deg); }
+.order-divider { display: flex; align-items: center; gap: 1rem; color: var(--muted-foreground); font-size: 1rem; letter-spacing: .16em; }
+.order-divider span { height: 1px; flex: 1; background: var(--border); }
+.service-card { border: 1px solid var(--border); box-shadow: 0 4px 20px #66502e05; border-radius: 1rem; }

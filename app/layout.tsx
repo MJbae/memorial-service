@@ -12,8 +12,8 @@ const notoSerifKR = Noto_Serif_KR({
 })
 
 export const metadata: Metadata = {
-  title: "고(故) 김우분 어머님・할머님 추모 예배",
-  description: "가족과 함께하는 감사와 사랑의 시간",
+  title: "고(故) 김우분 어머님・할머님 추석 추도 예배",
+  description: "2026년 추석, 가족과 함께 고(故) 김우분 어머님・할머님의 사랑과 은혜를 기억하는 추도 예배",
   generator: "v0.app",
 }
 

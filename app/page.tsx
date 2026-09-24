@@ -3,22 +3,30 @@
 import { Card, CardContent } from "@/components/ui/card"
 import { Button } from "@/components/ui/button"
 import { useState, useEffect } from "react"
-import { Minus, Plus, Heart, Music, BookOpen, User, Users } from "lucide-react"
+import { Minus, Plus, Music, BookOpen, User, Users, type LucideIcon } from "lucide-react"
 
 export default function MemorialService() {
   const [fontSize, setFontSize] = useState(3)
 
   useEffect(() => {
-    const savedSize = localStorage.getItem("memorial-font-size")
-    if (savedSize) {
-      setFontSize(Number.parseInt(savedSize))
+    try {
+      const savedSize = Number(localStorage.getItem("memorial-font-size"))
+      if (Number.isInteger(savedSize) && savedSize >= 1 && savedSize <= 5) {
+        setFontSize(savedSize)
+      }
+    } catch {
+      // Font controls still work when browser storage is unavailable.
     }
   }, [])
 
   const changeFontSize = (delta: number) => {
     const newSize = Math.max(1, Math.min(5, fontSize + delta))
     setFontSize(newSize)
-    localStorage.setItem("memorial-font-size", newSize.toString())
+    try {
+      localStorage.setItem("memorial-font-size", newSize.toString())
+    } catch {
+      // Keep the selected size for this visit even if it cannot be saved.
+    }
   }
 
   // Dynamic font size classes mapping
@@ -31,54 +39,66 @@ export default function MemorialService() {
   }
 
   return (
-    <div className="min-h-screen bg-background pb-20">
+    <div className="memorial-page min-h-screen pb-12">
       {/* Fixed Header for Controls */}
       <header className="sticky top-0 z-50 w-full border-b bg-background/80 backdrop-blur supports-[backdrop-filter]:bg-background/60">
         <div className="flex items-center justify-between px-4 h-16 max-w-5xl mx-auto">
           <div className="flex items-center gap-2">
-            <span className="font-semibold text-primary">추도예배</span>
+            <span className="font-semibold text-primary">추석 추도예배</span>
           </div>
-          <div className="flex items-center gap-2 bg-secondary/50 rounded-full p-1">
+          <div className="flex items-center gap-1 bg-secondary rounded-full p-1" role="group" aria-label="글자 크기 조절">
             <Button
               variant="ghost"
               size="icon"
+              aria-label="글자 크기 줄이기"
               onClick={() => changeFontSize(-1)}
               disabled={fontSize === 1}
-              className="h-8 w-8 rounded-full"
+              className="h-11 w-11 rounded-full text-primary"
             >
-              <Minus className="h-4 w-4" />
+              <Minus className="h-5 w-5" />
             </Button>
-            <span className="text-xs font-medium w-8 text-center tabular-nums">
-              {fontSize}
+            <span className="text-sm font-medium text-center tabular-nums" aria-live="polite" aria-atomic="true">
+              글자 {fontSize}/5
             </span>
             <Button
               variant="ghost"
               size="icon"
+              aria-label="글자 크기 키우기"
               onClick={() => changeFontSize(1)}
               disabled={fontSize === 5}
-              className="h-8 w-8 rounded-full"
+              className="h-11 w-11 rounded-full text-primary"
             >
-              <Plus className="h-4 w-4" />
+              <Plus className="h-5 w-5" />
             </Button>
           </div>
         </div>
       </header>
 
       <main className="max-w-3xl mx-auto p-4 space-y-8 mt-4">
-        {/* Intro Section */}
-        <div className="text-center py-10 space-y-6">
-          <div className={`inline-block px-3 py-1 rounded-full bg-secondary text-primary font-medium mb-4 ${fs.small[fontSize as keyof typeof fs.small]}`}>
-            2026년 2월 17일
+        {/* A quiet harvest moon above the family service. */}
+        <div className="memorial-intro text-center">
+          <div className="harvest-scene" aria-hidden="true">
+            <div className="harvest-moon" />
+            <svg className="harvest-grass" viewBox="0 0 300 160" fill="none">
+              <g stroke="currentColor" strokeWidth="1.5" strokeLinecap="round">
+                <path d="M38 159Q70 107 64 32M55 160Q95 105 107 58M238 160Q214 105 233 39M255 160Q237 121 264 87" />
+                <path d="M64 44q-20-4-19-19q17 2 19 19Zm1 17q20-7 17-21q-16 5-17 21Zm-1 15q-23-3-23-18q18 1 23 18Zm-3 17q22-7 21-22q-18 4-21 22ZM103 73q-17-4-16-17q15 3 16 17Zm-6 19q21-2 23-16q-16 0-23 16ZM230 55q-16-10-12-23q14 7 12 23Zm-3 20q22-3 24-18q-18 1-24 18Zm0 18q-20-6-19-21q17 3 19 21Zm4 20q22-8 19-22q-17 5-19 22ZM254 109q-14-9-10-21q13 6 10 21Z" fill="currentColor" fillOpacity=".18" />
+              </g>
+            </svg>
           </div>
-          <h1 className={`${fs.h1[fontSize as keyof typeof fs.h1]} font-bold text-foreground leading-tight`}>
-            고(故) 김우분 어머님<br />
-            추도 예배
+          <p className={`season-label ${fs.small[fontSize as keyof typeof fs.small]}`}>2026년 추석 · 한가위</p>
+          <h1 className={`${fs.h1[fontSize as keyof typeof fs.h1]} mt-6 font-semibold text-foreground leading-snug`}>
+            <span className="block">고(故) 김우분</span>
+            <span className="block">어머님·할머님</span>
+            <span className="block mt-3 text-primary">추도 예배</span>
           </h1>
-          <p className={`${fs.body[fontSize as keyof typeof fs.body]} text-muted-foreground`}>
-            가족과 함께하는<br />
-            감사와 사랑의 시간
+          <div className="intro-divider" aria-hidden="true"><span /></div>
+          <p className={`${fs.body[fontSize as keyof typeof fs.body]} text-muted-foreground leading-relaxed`}>
+            함께 모인 한가위,<br />
+            사랑과 은혜를 기억합니다.
           </p>
         </div>
+        <div className="order-divider" aria-hidden="true"><span />예배 순서<span /></div>
 
         {/* 1. Opening */}
         <SectionCard
@@ -131,77 +151,18 @@ export default function MemorialService() {
           </div>
         </SectionCard>
 
-        {/* 3. Scripture */}
+        {/* 3. Message — the scripture passage has not been selected. */}
         <SectionCard
           step={3}
-          title="성경 봉독"
-          subtitle="전도서 3장 1-14절"
+          title="말씀"
+          subtitle="말씀: 강영아"
           icon={BookOpen}
           fontSize={fontSize}
           fs={fs}
         >
-          <div className="space-y-2 mb-6 text-muted-foreground text-center">
-            <p className={`${fs.small[fontSize as keyof typeof fs.small]}`}>인도자와 함께 교독합니다</p>
-          </div>
-
-          <div className={`space-y-6 ${fs.body[fontSize as keyof typeof fs.body]} leading-loose`}>
-            <div className="space-y-2">
-              <RoleBadge role="leader" fontSize={fontSize} fs={fs} />
-              <p>범사에 기한이 있고 천하 만사가 다 때가 있나니</p>
-            </div>
-            <div className="space-y-2">
-              <RoleBadge role="all" fontSize={fontSize} fs={fs} />
-              <p>날 때가 있고 죽을 때가 있으며 심을 때가 있고 심은 것을 뽑을 때가 있으며</p>
-            </div>
-            <div className="space-y-2">
-              <RoleBadge role="leader" fontSize={fontSize} fs={fs} />
-              <p>죽일 때가 있고 치료할 때가 있으며 헐 때가 있고 세울 때가 있으며</p>
-            </div>
-            <div className="space-y-2">
-              <RoleBadge role="all" fontSize={fontSize} fs={fs} />
-              <p>울 때가 있고 웃을 때가 있으며 슬퍼할 때가 있고 춤출 때가 있으며</p>
-            </div>
-            <div className="space-y-2">
-              <RoleBadge role="leader" fontSize={fontSize} fs={fs} />
-              <p>돌을 던져 버릴 때가 있고 돌을 거둘 때가 있으며 안을 때가 있고 안는 일을 멀리 할 때가 있으며</p>
-            </div>
-            <div className="space-y-2">
-              <RoleBadge role="all" fontSize={fontSize} fs={fs} />
-              <p>찾을 때가 있고 잃을 때가 있으며 지킬 때가 있고 버릴 때가 있으며</p>
-            </div>
-            <div className="space-y-2">
-              <RoleBadge role="leader" fontSize={fontSize} fs={fs} />
-              <p>찢을 때가 있고 꿰맬 때가 있으며 잠잠할 때가 있고 말할 때가 있으며</p>
-            </div>
-            <div className="space-y-2">
-              <RoleBadge role="all" fontSize={fontSize} fs={fs} />
-              <p>사랑할 때가 있고 미워할 때가 있으며 전쟁할 때가 있고 평화할 때가 있느니라</p>
-            </div>
-            <div className="space-y-2">
-              <RoleBadge role="leader" fontSize={fontSize} fs={fs} />
-              <p>일하는 자가 그의 수고로 말미암아 무슨 이익이 있으랴</p>
-            </div>
-            <div className="space-y-2">
-              <RoleBadge role="all" fontSize={fontSize} fs={fs} />
-              <p>하나님이 인생들에게 노고를 주사 애쓰게 하신 것을 내가 보았노라</p>
-            </div>
-            <div className="space-y-2">
-              <RoleBadge role="leader" fontSize={fontSize} fs={fs} />
-              <p>하나님이 모든 것을 지으시되 때를 따라 아름답게 하셨고 또 사람들에게는 영원을 사모하는 마음을 주셨느니라 그러나 하나님이 하시는 일의 시종을 사람으로 측량할 수 없게 하셨도다</p>
-            </div>
-            <div className="space-y-2">
-              <RoleBadge role="all" fontSize={fontSize} fs={fs} />
-              <p>사람들이 사는 동안에 기뻐하며 선을 행하는 것보다 더 나은 것이 없는 줄을 내가 알았고</p>
-            </div>
-            <div className="space-y-2">
-              <RoleBadge role="leader" fontSize={fontSize} fs={fs} />
-              <p>사람마다 먹고 마시는 것과 수고함으로 낙을 누리는 그것이 하나님의 선물인 줄도 또한 알았도다</p>
-            </div>
-            <div className="space-y-2">
-              <RoleBadge role="all" fontSize={fontSize} fs={fs} />
-              <p>하나님께서 행하시는 모든 것은 영원히 있을 것이라 그 위에 더 할 수도 없고 그것에서 덜 할 수도 없나니 하나님이 이같이 행하심은 사람들이 그의 앞에서 경외하게 하려 하심인 줄을 내가 알았도다</p>
-            </div>
-          </div>
+          <p className={`${fs.body[fontSize as keyof typeof fs.body]} leading-relaxed`}>
+            함께 말씀을 듣습니다.
+          </p>
         </SectionCard>
 
         {/* 4. Closing */}
@@ -256,24 +217,24 @@ function SectionCard({
   step: number
   title: string
   subtitle: string
-  icon: any
+  icon: LucideIcon
   children: React.ReactNode
   fontSize: number
   fs: any
 }) {
   return (
-    <Card className="overflow-hidden border-none shadow-md">
-      <div className="bg-secondary/50 p-4 flex items-center gap-3 border-b border-secondary">
-        <div className={`flex items-center justify-center w-8 h-8 rounded-full bg-primary text-primary-foreground font-bold ${fs.small[fontSize as keyof typeof fs.small]}`}>
+    <Card className="service-card overflow-hidden">
+      <div className="bg-secondary/50 p-4 sm:p-6 flex items-start gap-3 border-b border-border">
+        <div className={`flex items-center justify-center shrink-0 min-w-10 min-h-10 p-1 rounded-full bg-primary text-primary-foreground font-bold ${fs.small[fontSize as keyof typeof fs.small]}`}>
           {step}
         </div>
-        <div className="flex-1">
+        <div className="flex-1 min-w-0">
           <h2 className={`${fs.h3[fontSize as keyof typeof fs.h3]} font-bold text-primary`}>{title}</h2>
           <p className={`${fs.small[fontSize as keyof typeof fs.small]} text-muted-foreground`}>{subtitle}</p>
         </div>
-        <Icon className="w-5 h-5 text-muted-foreground/50" />
+        <Icon className="w-5 h-5 shrink-0 mt-2 text-primary" aria-hidden="true" />
       </div>
-      <CardContent className="p-6">
+      <CardContent className="p-4 sm:p-6">
         {children}
       </CardContent>
     </Card>
