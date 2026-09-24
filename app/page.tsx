@@ -155,15 +155,27 @@ export default function MemorialService() {
         <SectionCard
           step={3}
           title="말씀"
-          subtitle="시편 23편 1–6절 (새번역)"
+          subtitle="시편 23편 1–6절"
           icon={BookOpen}
           fontSize={fontSize}
           fs={fs}
         >
           <RoleBadge role="leader" customText="강영아" fontSize={fontSize} fs={fs} />
-          <p className={`mt-6 ${fs.body[fontSize as keyof typeof fs.body]} leading-relaxed`}>
-            함께 말씀을 듣습니다.
-          </p>
+          <div className={`mt-6 space-y-6 ${fs.body[fontSize as keyof typeof fs.body]} leading-loose`}>
+            {[
+              "주님은 나의 목자시니, 내게 부족함 없어라.",
+              "나를 푸른 풀밭에 누이시며 쉴 만한 물 가로 인도하신다.",
+              "나에게 다시 새 힘을 주시고, 당신의 이름을 위하여 바른 길로 나를 인도하신다.",
+              "내가 비록 죽음의 그늘 골짜기로 다닐지라도, 주님께서 나와 함께 계시고, 주님의 막대기와 지팡이로 나를 보살펴 주시니, 내게는 두려움이 없습니다.",
+              "주님께서는, 내 원수들이 보는 앞에서 내게 잔칫상을 차려 주시고, 내 머리에 기름 부으시어 나를 귀한 손님으로 맞아 주시니, 내 잔이 넘칩니다.",
+              "진실로 주님의 선하심과 인자하심이 내가 사는 날 동안 나를 따르리니, 나는 주님의 집으로 돌아가 영원히 그 곳에서 살겠습니다.",
+            ].map((verse, index) => (
+              <p key={index} className="flex items-baseline gap-3">
+                <span className="shrink-0 font-semibold text-primary" aria-label={`${index + 1}절`}>{index + 1}</span>
+                <span className="min-w-0">{verse}</span>
+              </p>
+            ))}
+          </div>
         </SectionCard>
 
         {/* 4. Closing */}
